@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> digital timer </title>
+</head>
+<body>
+  <p>
+    デジタル時計
+  </p>
+
+  <p id="RealtimeClockArea">※ここに時計が表示されます。</p>
+
+  <script>
+    function set2fig(num) {
+      var ret;
+      if( num < 10 ) { ret = "0" + num; }
+      else { ret = num; }
+      return ret;
+    }
+    function showClock1() {
+      var nowTime = new Date();
+      var nowHour = set2fig(nowTime.getHours());
+      var nowMin  = set2fig(nowTime.getMinutes());
+      var nowSec  = set2fig(nowTime.getSeconds());
+      var msg = "現在時刻は、" + nowHour + ":" + nowMin + ":" + nowSec + " です。";
+      document.getElementById("RealtimeClockArea").innerHTML = msg;
+    }
+    setInterval('showClock1()',1000);
+
+  </script>
+</body>
+</html>
